@@ -9,10 +9,10 @@ dependencies:
     specifier: ^3.4.0
     version: 3.4.0(react@18.3.1)
   '@sanity/image-url':
-    specifier: '1'
+    specifier: ^1.0.2
     version: 1.0.2
   '@sanity/vision':
-    specifier: '3'
+    specifier: ^3.57.4
     version: 3.57.4(@babel/runtime@7.25.6)(@codemirror/lint@6.8.1)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.1)(codemirror@6.0.1)(react-dom@18.3.1)(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.13)
   '@splinetool/react-spline':
     specifier: ^4.0.0
@@ -32,6 +32,9 @@ dependencies:
   autoprefixer:
     specifier: 10.4.14
     version: 10.4.14(postcss@8.4.22)
+  dotenv-expand:
+    specifier: ^11.0.6
+    version: 11.0.6
   eslint:
     specifier: 8.38.0
     version: 8.38.0
@@ -47,8 +50,11 @@ dependencies:
   next-pwa:
     specifier: ^5.6.0
     version: 5.6.0(@babel/core@7.25.2)(esbuild@0.21.5)(next@14.2.7)(webpack@5.94.0)
+  next-runtime-env:
+    specifier: ^3.2.2
+    version: 3.2.2(next@14.2.7)(react@18.3.1)
   next-sanity:
-    specifier: '9'
+    specifier: ^9.4.7
     version: 9.4.7(@sanity/client@6.21.3)(@sanity/icons@3.4.0)(@sanity/types@3.57.4)(@sanity/ui@2.8.9)(next@14.2.7)(react-dom@18.3.1)(react@18.3.1)(sanity@3.57.4)(styled-components@6.1.13)
   postcss:
     specifier: 8.4.22
@@ -69,13 +75,13 @@ dependencies:
     specifier: ^2.1.7
     version: 2.3.0
   sanity:
-    specifier: '3'
+    specifier: ^3.57.4
     version: 3.57.4(@types/node@18.15.11)(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)(styled-components@6.1.13)
   sanity-plugin-tags:
     specifier: ^2.0.2
     version: 2.0.2(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)(rxjs@7.8.1)(sanity@3.57.4)(styled-components@6.1.13)
   styled-components:
-    specifier: '6'
+    specifier: ^6.1.13
     version: 6.1.13(react-dom@18.3.1)(react@18.3.1)
   tailwindcss:
     specifier: 3.3.1
@@ -4991,6 +4997,18 @@ packages:
       is-obj: 2.0.0
     dev: false
 
+  /dotenv-expand@11.0.6:
+    resolution: {integrity: sha512-8NHi73otpWsZGBSZwwknTXS5pqMOrk9+Ssrna8xCaxkzEpU9OTf9R5ArQGVw03//Zmk9MOwLPng9WwndvpAJ5g==}
+    engines: {node: '>=12'}
+    dependencies:
+      dotenv: 16.4.5
+    dev: false
+
+  /dotenv@16.4.5:
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
+    engines: {node: '>=12'}
+    dev: false
+
   /duplexify@3.7.1:
     resolution: {integrity: sha512-07z8uv2wMyS51kKhD1KsdXJg5WQ6t93RneqRxUHnskXVtlYYkLqM0gqStQZ3pj073g687jPCHrqNfCzawLYh5g==}
     dependencies:
@@ -7383,6 +7401,16 @@ packages:
       - supports-color
       - uglify-js
       - webpack
+    dev: false
+
+  /next-runtime-env@3.2.2(next@14.2.7)(react@18.3.1):
+    resolution: {integrity: sha512-S5S6NxIf3XeaVc9fLBN2L5Jzu+6dLYCXeOaPQa1RzKRYlG2BBayxXOj6A4VsciocyNkJMazW1VAibtbb1/ZjAw==}
+    peerDependencies:
+      next: ^14
+      react: ^18
+    dependencies:
+      next: 14.2.7(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
+      react: 18.3.1
     dev: false
 
   /next-sanity@9.4.7(@sanity/client@6.21.3)(@sanity/icons@3.4.0)(@sanity/types@3.57.4)(@sanity/ui@2.8.9)(next@14.2.7)(react-dom@18.3.1)(react@18.3.1)(sanity@3.57.4)(styled-components@6.1.13):
