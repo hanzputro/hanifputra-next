@@ -1,29 +1,25 @@
-import { type SchemaTypeDefinition } from "sanity";
-
 import { seoType } from "./seoType";
-import { collectionType } from "./collectionType";
-import { homeType } from "./homeType";
-import { skillType } from "./skillType";
-import { projectType } from "./projectType";
-import { contactType } from "./contactType";
-// import { categoryType } from "./categoryType";
-// import { postType } from "./postType";
-import { authorType } from "./authorType";
+import { projectCollectionType } from "./projectCollectionType";
+import { skillCollectionType } from "./skillCollectionType";
+import { socialMediaCollectionType } from "./socialMediaCollectionType";
+import { homeType } from "./homeSectionType";
+import { skillType } from "./skillSectionType";
+import { projectType } from "./projectSectionType";
+import { contactType } from "./contactSectionType";
 import { blockContentType } from "./blockContentType";
-import { sloganType } from "./sloganType";
+import { authorType } from "./authorType";
+import { categoryType } from "./categoryType";
 
-export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [
-    seoType,
-    collectionType,
-    homeType,
-    skillType,
-    projectType,
-    contactType,
-    // categoryType,
-    // postType,
-    authorType,
-    blockContentType,
-    sloganType,
-  ],
-};
+export const schema = [
+  seoType,
+  projectCollectionType,
+  skillCollectionType,
+  socialMediaCollectionType,
+  homeType,
+  skillType,
+  projectType,
+  contactType,
+  blockContentType,
+  authorType,
+  categoryType,
+];

@@ -1,5 +1,5 @@
 import { DocumentTextIcon } from "@sanity/icons";
-import { defineArrayMember, defineField, defineType } from "sanity";
+import { defineField, defineType } from "sanity";
 
 export const collectionType = defineType({
   name: "collection",
@@ -8,6 +8,7 @@ export const collectionType = defineType({
   icon: DocumentTextIcon,
   fields: [
     defineField({
+      title: "Title",
       name: "title",
       type: "string",
     }),
@@ -18,16 +19,30 @@ export const collectionType = defineType({
     defineField({
       name: "url",
       type: "string",
+      hidden: ({ document, parent, currentUser, value }) => {
+        console.log(
+          "document:",
+          document,
+          "parent:",
+          parent,
+          "currentUser:",
+          currentUser,
+          "value:",
+          value
+        );
+        return false;
+      },
     }),
     defineField({
-      name: "skill",
-      type: "tags",
+      name: "category",
+      type: "string",
       options: {
-        predefinedTags: [
-          { label: "Design", value: "design" },
-          { label: "Code", value: "code" },
+        list: [
+          { title: "Design", value: "design" },
+          { title: "Code", value: "code" },
         ],
       },
+      // hidden: ({ document }) => document?.id !== "skill",
     }),
     defineField({
       name: "job",
@@ -39,6 +54,7 @@ export const collectionType = defineType({
           { label: "Designer", value: "designer" },
         ],
       },
+      // hidden: ({ document }) => document?.id !== "project",
     }),
     defineField({
       name: "thumbnail",
@@ -53,6 +69,7 @@ export const collectionType = defineType({
           title: "Alternative text",
         },
       ],
+      // hidden: ({ document }) => document?.name !== "project",
     }),
     defineField({
       name: "image",
@@ -72,12 +89,7 @@ export const collectionType = defineType({
   preview: {
     select: {
       title: "title",
-      author: "author.name",
-      media: "mainImage",
-    },
-    prepare(selection) {
-      const { author } = selection;
-      return { ...selection, subtitle: author && `by ${author}` };
+      media: "image",
     },
   },
 });

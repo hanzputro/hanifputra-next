@@ -19,13 +19,16 @@ export const contactType = defineType({
       name: "description",
       type: "blockContent",
     }),
-    // defineField({
-    //   name: "socialMedia",
-    //   type: "array",
-    //   of: [
-    //     defineArrayMember({ type: "collection", to: { type: "socialMedia" } }),
-    //   ],
-    // }),
+    defineField({
+      name: "socialMedia",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "reference",
+          to: { type: "socialMediaCollection" },
+        }),
+      ],
+    }),
   ],
   preview: {
     select: {

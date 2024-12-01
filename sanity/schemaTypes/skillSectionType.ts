@@ -8,12 +8,26 @@ export const skillType = defineType({
   icon: ChartUpwardIcon,
   fields: [
     defineField({
+      title: "Title",
       name: "title",
       type: "string",
     }),
     defineField({
       name: "titleShadow",
       type: "string",
+      // hidden: ({ document, parent, currentUser, value }) => {
+      //   console.log(
+      //     "document:",
+      //     document,
+      //     "parent:",
+      //     parent,
+      //     "currentUser:",
+      //     currentUser,
+      //     "value:",
+      //     value
+      //   );
+      //   return document?.id !== "socialMedia";
+      // },
     }),
     // defineField({
     //   name: "design",
@@ -38,8 +52,7 @@ export const skillType = defineType({
   ],
   preview: {
     select: {
-      title: "name",
-      media: "image",
+      title: "title",
     },
   },
 });
