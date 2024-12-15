@@ -1,7 +1,7 @@
-const { loadEnvConfig } = require("@next/env");
+// const { loadEnvConfig } = require("@next/env");
 
-const projectDir = process.cwd();
-loadEnvConfig(projectDir);
+// const projectDir = process.cwd();
+// loadEnvConfig(projectDir);
 
 /**
  * Default dotenv variables flow in Next.js doesn't support custom modes: staging, qa, etc.

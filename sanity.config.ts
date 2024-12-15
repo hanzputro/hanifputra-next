@@ -7,13 +7,15 @@
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
+// import { RobotIcon, RocketIcon } from "@sanity/icons";
+// import myLogo from "@/public/assets/icons/hanifputra.webp";
 import { tags } from "sanity-plugin-tags";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
-import { apiVersion, dataset, projectId } from "./sanity/env";
-import { customStructure } from "./sanity/structure";
-import { schema } from "./sanity/schemaTypes";
-import { MyLogo } from "./components/MyLogo";
+import { apiVersion, dataset, projectId } from "@/sanity/env";
+import { customStructure } from "@/sanity/structure";
+import { schema } from "@/sanity/schemaTypes";
+// import { MyLogo } from "./components/MyLogo";
 // import customTemplates from "./sanity/templates";
 
 export default defineConfig({
@@ -30,5 +32,5 @@ export default defineConfig({
     types: schema,
     // templates: customTemplates,
   },
-  icon: MyLogo,
+  // icon: MyLogo,
 });
