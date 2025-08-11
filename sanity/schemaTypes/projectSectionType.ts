@@ -12,19 +12,23 @@ export const projectType = defineType({
       type: "string",
     }),
     defineField({
-      name: "titleShadow",
+      name: "textShadow",
       type: "string",
     }),
-    // defineField({
-    //   name: "project",
-    //   type: "array",
-    //   of: [defineArrayMember({ type: "collection", to: { type: "project" } })],
-    // }),
+    defineField({
+      name: "project",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "reference",
+          to: { type: "projectCollection" },
+        }),
+      ],
+    }),
   ],
   preview: {
     select: {
-      title: "name",
-      media: "image",
+      title: "title",
     },
   },
 });

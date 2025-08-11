@@ -13,42 +13,37 @@ export const skillType = defineType({
       type: "string",
     }),
     defineField({
-      name: "titleShadow",
+      name: "textShadow",
       type: "string",
-      // hidden: ({ document, parent, currentUser, value }) => {
-      //   console.log(
-      //     "document:",
-      //     document,
-      //     "parent:",
-      //     parent,
-      //     "currentUser:",
-      //     currentUser,
-      //     "value:",
-      //     value
-      //   );
-      //   return document?.id !== "socialMedia";
-      // },
     }),
-    // defineField({
-    //   name: "design",
-    //   type: "array",
-    //   of: [
-    //     defineArrayMember({
-    //       type: "collection",
-    //       to: { type: "skill", label: "design" },
-    //     }),
-    //   ],
-    // }),
-    // defineField({
-    //   name: "code",
-    //   type: "array",
-    //   of: [
-    //     defineArrayMember({
-    //       type: "collection",
-    //       to: { type: "skill", label: "code" },
-    //     }),
-    //   ],
-    // }),
+    defineField({
+      name: "design",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "reference",
+          to: { type: "skillCollection" },
+          options: {
+            filter: "category == $category",
+            filterParams: { category: "design" },
+          },
+        }),
+      ],
+    }),
+    defineField({
+      name: "code",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "reference",
+          to: { type: "skillCollection" },
+          options: {
+            filter: "category == $category",
+            filterParams: { category: "code" },
+          },
+        }),
+      ],
+    }),
   ],
   preview: {
     select: {

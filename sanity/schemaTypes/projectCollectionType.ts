@@ -19,19 +19,6 @@ export const projectCollectionType = defineType({
     defineField({
       name: "url",
       type: "string",
-      // hidden: ({ document, parent, currentUser, value }) => {
-      //   console.log(
-      //     "document:",
-      //     document,
-      //     "parent:",
-      //     parent,
-      //     "currentUser:",
-      //     currentUser,
-      //     "value:",
-      //     value
-      //   );
-      //   return false;
-      // },
     }),
     defineField({
       name: "job",

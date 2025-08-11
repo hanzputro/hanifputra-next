@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
+import { client } from "@/sanity/lib/client";
 import Spline from "@splinetool/react-spline";
 import { Andada_Pro, Inter } from "next/font/google";
 import {
@@ -19,11 +20,51 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+type HomeType = {
+  _id: string;
+  title: string;
+  textHero: string[];
+  textShadow: string[];
+  description: string;
+  slogan: string[];
+  urlSpline: string;
+};
+
 interface HeroProps {
   setCurrentHash: (value: string) => void;
   currentHash: string;
 }
-const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
+
+function Hero({ setCurrentHash, currentHash }: HeroProps) {
+  const [home, setHome] = useState<HomeType>();
+  const [loading, setLoading] = useState(true);
+
+  const fetchHome = async () => {
+    const query = `*[_type == "home"]{
+        _id,
+        title,
+        textHero,
+        textShadow,
+        description,
+        slogan,
+        urlSpline
+      }`;
+    try {
+      const data = await client.fetch(query);
+      setHome(data);
+    } catch (error) {
+      console.error("Failed to fetch:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchHome();
+  }, []);
+
+  console.log("home:", home);
+
   const homeRef = useRef<any>(null);
 
   const { scrollYProgress } = useScroll({
@@ -237,6 +278,6 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
       </motion.div>
     </section>
   );
-};
+}
 
 export default Hero;

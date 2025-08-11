@@ -12,7 +12,7 @@ export const contactType = defineType({
       type: "string",
     }),
     defineField({
-      name: "titleShadow",
+      name: "textShadow",
       type: "string",
     }),
     defineField({
@@ -32,8 +32,7 @@ export const contactType = defineType({
   ],
   preview: {
     select: {
-      title: "name",
-      media: "image",
+      title: "title",
     },
   },
 });
