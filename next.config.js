@@ -24,6 +24,16 @@ const nextConfig = withPWA({
   typescript: {
     ignoreBuildErrors: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        port: "",
+        pathname: "/images/**",
+      },
+    ],
+  },
 });
 module.exports = nextConfig;
 

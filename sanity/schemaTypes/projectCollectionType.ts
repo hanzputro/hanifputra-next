@@ -39,6 +39,10 @@ export const projectCollectionType = defineType({
       },
     }),
     defineField({
+      name: "thumbnailHeight",
+      type: "number",
+    }),
+    defineField({
       name: "image",
       type: "image",
       options: {
@@ -49,7 +53,6 @@ export const projectCollectionType = defineType({
   preview: {
     select: {
       title: "title",
-      subtitle: "job",
       media: "thumbnail",
     },
   },
