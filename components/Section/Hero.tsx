@@ -195,7 +195,7 @@ function Hero({ setCurrentHash, currentHash, home }: HeroProps) {
         </motion.h1>
 
         <motion.div
-          className={`${inter.className} leading-[1.7] md:leading-[1.8] w-full md:w-[80%] lg:w-full opacity-0`}
+          className={`${inter.className} leading-[1.7] md:leading-[1.8] w-full opacity-0`}
           variants={descriptionVariants}
           animate="slide"
         >

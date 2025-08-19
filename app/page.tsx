@@ -41,7 +41,7 @@ export default function Home() {
     const project =
       "*[_type == 'project'][0]{title,textShadow,'project':project[]->{title,description,url,job,'thumbnail':thumbnail.asset->url,thumbnailHeight,'image':image.asset->url}}";
     const contact =
-      "*[_type == 'contact'][0]{title,textShadow,'project':project[]->{title,url,'image':image.asset->url}}";
+      "*[_type == 'contact'][0]{title,textShadow,description,'socialMedia':socialMedia[]->{title,url,'image':image.asset->url}}";
 
     const allQueries = `{ "home": ${home}, "skill": ${skill}, "project": ${project}, "contact": ${contact} }`;
     try {

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Andada_Pro } from "next/font/google";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { PortableText } from "@portabletext/react";
+import { Tooltip } from "../Tooltip";
 
 const andadaPro = Andada_Pro({
   weight: ["600"],
@@ -93,14 +94,16 @@ const Contact = ({ contact, setCurrentHash, currentHash }: ContactProps) => {
               return (
                 <li key={item.title}>
                   <a href={item.url} target="_blank">
-                    <Image
-                      className="relative hover:scale-[1.05] duration-100 cursor-pointer"
-                      src={item.image}
-                      alt={item.title}
-                      width={32}
-                      height={32}
-                      priority
-                    />
+                    <Tooltip text={item.title}>
+                      <Image
+                        className="relative hover:scale-[1.05] duration-100 cursor-pointer"
+                        src={item.image}
+                        alt={item.title}
+                        width={48}
+                        height={48}
+                        priority
+                      />
+                    </Tooltip>
                   </a>
                 </li>
               );
