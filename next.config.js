@@ -34,15 +34,6 @@ const nextConfig = withPWA({
       },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/",
-        permanent: true,
-      },
-    ];
-  },
 });
 module.exports = nextConfig;
 
