@@ -8,6 +8,7 @@ export const projectType = defineType({
   icon: ChartUpwardIcon,
   fields: [
     defineField({
+      title: "Title",
       name: "title",
       type: "string",
     }),

@@ -40,7 +40,7 @@ export const projectCollectionType = defineType({
     }),
     defineField({
       name: "thumbnailHeight",
-      type: "number",
+      type: "string",
     }),
     defineField({
       name: "image",
