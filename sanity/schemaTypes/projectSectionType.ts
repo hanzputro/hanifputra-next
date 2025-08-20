@@ -8,23 +8,28 @@ export const projectType = defineType({
   icon: ChartUpwardIcon,
   fields: [
     defineField({
+      title: "Title",
       name: "title",
       type: "string",
     }),
     defineField({
-      name: "titleShadow",
+      name: "textShadow",
       type: "string",
     }),
-    // defineField({
-    //   name: "project",
-    //   type: "array",
-    //   of: [defineArrayMember({ type: "collection", to: { type: "project" } })],
-    // }),
+    defineField({
+      name: "project",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "reference",
+          to: { type: "projectCollection" },
+        }),
+      ],
+    }),
   ],
   preview: {
     select: {
-      title: "name",
-      media: "image",
+      title: "title",
     },
   },
 });

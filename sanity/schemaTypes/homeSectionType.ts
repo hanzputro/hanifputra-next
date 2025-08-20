@@ -9,6 +9,10 @@ export const homeType = defineType({
   fields: [
     defineField({
       name: "title",
+      type: "string",
+    }),
+    defineField({
+      name: "textHero",
       type: "tags",
       options: {
         predefinedTags: [
@@ -24,17 +28,17 @@ export const homeType = defineType({
       },
     }),
     defineField({
-      name: "titleShadow",
+      name: "textShadow",
       type: "tags",
       options: {
         predefinedTags: [
           {
-            label: "WEBSITE",
-            value: "website",
+            label: "FRONTEND",
+            value: "frontend",
           },
           {
-            label: "APPLICATION",
-            value: "application",
+            label: "ENGINEER",
+            value: "engineer",
           },
           {
             label: "DEVELOPER",
@@ -80,8 +84,7 @@ export const homeType = defineType({
   ],
   preview: {
     select: {
-      title: "name",
-      media: "image",
+      title: "title",
     },
   },
 });

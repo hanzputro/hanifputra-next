@@ -19,19 +19,6 @@ export const projectCollectionType = defineType({
     defineField({
       name: "url",
       type: "string",
-      // hidden: ({ document, parent, currentUser, value }) => {
-      //   console.log(
-      //     "document:",
-      //     document,
-      //     "parent:",
-      //     parent,
-      //     "currentUser:",
-      //     currentUser,
-      //     "value:",
-      //     value
-      //   );
-      //   return false;
-      // },
     }),
     defineField({
       name: "job",
@@ -52,6 +39,10 @@ export const projectCollectionType = defineType({
       },
     }),
     defineField({
+      name: "thumbnailHeight",
+      type: "string",
+    }),
+    defineField({
       name: "image",
       type: "image",
       options: {
@@ -62,7 +53,6 @@ export const projectCollectionType = defineType({
   preview: {
     select: {
       title: "title",
-      subtitle: "job",
       media: "thumbnail",
     },
   },
