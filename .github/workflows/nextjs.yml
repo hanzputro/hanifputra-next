@@ -27,20 +27,12 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    env:
-          AUTHOR: ${{ vars.AUTHOR }}
-          DESCRIPTION: ${{ vars.DESCRIPTION }}
-          SANITY_API_PROJECT_ID: ${{ vars.SANITY_API_PROJECT_ID }}
-          SANITY_API_READ_TOKEN: ${{ vars.SANITY_API_READ_TOKEN }}
-          SANITY_API_WRITE_TOKEN: ${{ vars.SANITY_API_WRITE_TOKEN }}
-          SANITY_STUDIO_DATASET: ${{ vars.SANITY_STUDIO_DATASET }}
-          NEXT_PUBLIC_SANITY_STUDIO_DATASET: ${{ vars.NEXT_PUBLIC_SANITY_STUDIO_DATASET }}
-          SANITY_STUDIO_PROJECT_ID: ${{ vars.SANITY_STUDIO_PROJECT_ID }}
-          NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID: ${{ vars.NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID }}
-          TITLE: ${{ vars.TITLE }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - uses: ./
+        with:
+          environment: 'preview'
       - name: Setup pnpm        
         uses: pnpm/action-setup@v2
         with:
@@ -107,23 +99,10 @@ jobs:
 
   # Deployment job
   deploy:
-    environment:
-      name: preview
-      url: ${{ steps.deployment.outputs.page_url }}
+    environment: preview
     runs-on: ubuntu-latest
     needs: build
     steps:
       - name: Deploy to GitHub Pages
-        env:
-          AUTHOR: ${{ vars.AUTHOR }}
-          DESCRIPTION: ${{ vars.DESCRIPTION }}
-          SANITY_API_PROJECT_ID: ${{ vars.SANITY_API_PROJECT_ID }}
-          SANITY_API_READ_TOKEN: ${{ vars.SANITY_API_READ_TOKEN }}
-          SANITY_API_WRITE_TOKEN: ${{ vars.SANITY_API_WRITE_TOKEN }}
-          SANITY_STUDIO_DATASET: ${{ vars.SANITY_STUDIO_DATASET }}
-          NEXT_PUBLIC_SANITY_STUDIO_DATASET: ${{ vars.NEXT_PUBLIC_SANITY_STUDIO_DATASET }}
-          SANITY_STUDIO_PROJECT_ID: ${{ vars.SANITY_STUDIO_PROJECT_ID }}
-          NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID: ${{ vars.NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID }}
-          TITLE: ${{ vars.TITLE }}
         id: deployment
         uses: actions/deploy-pages@v4
