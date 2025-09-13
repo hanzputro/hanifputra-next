@@ -27,6 +27,17 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    env:
+          AUTHOR: ${{ vars.AUTHOR }}
+          DESCRIPTION: ${{ vars.DESCRIPTION }}
+          SANITY_API_PROJECT_ID: ${{ vars.SANITY_API_PROJECT_ID }}
+          SANITY_API_READ_TOKEN: ${{ vars.SANITY_API_READ_TOKEN }}
+          SANITY_API_WRITE_TOKEN: ${{ vars.SANITY_API_WRITE_TOKEN }}
+          SANITY_STUDIO_DATASET: ${{ vars.SANITY_STUDIO_DATASET }}
+          NEXT_PUBLIC_SANITY_STUDIO_DATASET: ${{ vars.NEXT_PUBLIC_SANITY_STUDIO_DATASET }}
+          SANITY_STUDIO_PROJECT_ID: ${{ vars.SANITY_STUDIO_PROJECT_ID }}
+          NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID: ${{ vars.NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID }}
+          TITLE: ${{ vars.TITLE }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -79,17 +90,6 @@ jobs:
       # # If source files changed but packages didn't, rebuild from a prior cache.
       # restore-keys: |
       # ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
-      env:
-          AUTHOR: ${{ vars.AUTHOR }}
-          DESCRIPTION: ${{ vars.DESCRIPTION }}
-          SANITY_API_PROJECT_ID: ${{ vars.SANITY_API_PROJECT_ID }}
-          SANITY_API_READ_TOKEN: ${{ vars.SANITY_API_READ_TOKEN }}
-          SANITY_API_WRITE_TOKEN: ${{ vars.SANITY_API_WRITE_TOKEN }}
-          SANITY_STUDIO_DATASET: ${{ vars.SANITY_STUDIO_DATASET }}
-          NEXT_PUBLIC_SANITY_STUDIO_DATASET: ${{ vars.NEXT_PUBLIC_SANITY_STUDIO_DATASET }}
-          SANITY_STUDIO_PROJECT_ID: ${{ vars.SANITY_STUDIO_PROJECT_ID }}
-          NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID: ${{ vars.NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID }}
-          TITLE: ${{ vars.TITLE }}
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       # - name: Generate RSS Feeds
