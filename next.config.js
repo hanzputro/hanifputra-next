@@ -22,7 +22,6 @@ const withPWA = require("next-pwa")({
 const nextConfig = withPWA({
   // next config
   basePath: "/portfolio",
-  output: "export",  // <=== enables static exports
   typescript: {
     ignoreBuildErrors: true,
   },

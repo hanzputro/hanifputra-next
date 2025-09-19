@@ -21,10 +21,10 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      - name: Set Node.js 18.x
+      - name: Set Node.js 22.x
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x   # whatever version your gatsby uses (you can find that in package.json under 'engine')
+          node-version: 22.19.0   # whatever version your gatsby uses (you can find that in package.json under 'engine')
 
       - name: Run install
         uses: borales/actions-yarn@v4
