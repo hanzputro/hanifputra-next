@@ -13,6 +13,7 @@ const dataset =
 
 export default defineCliConfig({
   api: { projectId, dataset },
+  studioHost: 'hanifputra',
   vite: {
     resolve: {
       alias: {
